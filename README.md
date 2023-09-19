@@ -105,7 +105,7 @@ To get started with this project, follow these steps:
      ```
   
 
-### Data Usage
+#### Data Usage
 
 7. **Feature Generation Code:**
    - Run the DataFeaturePreparation.ipynb notebook located in the *MEMTrack/src* directory and update the path variables (Cell 3) according to your directory structure.
@@ -118,41 +118,35 @@ To get started with this project, follow these steps:
 6. **Final Data Directory:**
    - Expected Directory Structure after feature generation code:
   
-      ```
-     ├── MEMTRack/
-     │   ├──data/
-     │   ├──data_features/
-     │   │   ├── exp_name/
-     |   |   |     ├── data_features_set/
-     |   |   |     |    ├── train/
-     |   |   |     |    |     ├── annotations_motility_no/
-     |   |   |     |    |     |    ├── 0.txt
-     |   |   |     |    |     |    ├── 1.txt
-     |   |   |     |    |     |    └── ...
-     |   |   |     |    |     ├── annotations_motility_low/
-     |   |   |     |    |     ├── annotations_motility_mid/
-     |   |   |     |    |     ├── annotations_motility_high/
-     |   |   |     |    |     ├── images/
-     |   |   |     |    |          ├── 0.tif
-     |   |   |     |    |          ├── 1.tif
-     |   |   |     |    |          └── ...
-     |   |   |     |    |     ├── images_feature/
-     |   |   |     |    |          ├── 0.tif
-     |   |   |     |    |          ├── 1.tif
-     |   |   |     |    |          └── ...
-     |   |   |     |    ├── test/
-     |   |   |     |    ├── val/
-     |   |   |     ├── data_feature_video1/test/
-     |   |   |     ├── data_feature_video2/test/
-     |   |   |     └── ...
-     │   │   └── ...
-     │   ├── src/
-
-     
-
-
-
-
-
+     ```
+        ├── MEMTRack/
+        │   ├──data/
+        │   ├──data_features/
+        │   │   ├── exp_name/
+        |   |   |     ├── data_features_set/
+        |   |   |     |    ├── train/
+        |   |   |     |    |     ├── annotations_motility_no/
+        |   |   |     |    |     |    ├── 0.txt
+        |   |   |     |    |     |    ├── 1.txt
+        |   |   |     |    |     |    └── ...
+        |   |   |     |    |     ├── annotations_motility_low/
+        |   |   |     |    |     ├── annotations_motility_mid/
+        |   |   |     |    |     ├── annotations_motility_high/
+        |   |   |     |    |     ├── images/
+        |   |   |     |    |          ├── 0.tif
+        |   |   |     |    |          ├── 1.tif
+        |   |   |     |    |          └── ...
+        |   |   |     |    |     ├── images_feature/
+        |   |   |     |    |          ├── 0.tif
+        |   |   |     |    |          ├── 1.tif
+        |   |   |     |    |          └── ...
+        |   |   |     |    ├── test/
+        |   |   |     |    ├── val/
+        |   |   |     ├── data_feature_video1/test/
+        |   |   |     ├── data_feature_video2/test/
+        |   |   |     └── ...
+        │   │   └── ...
+        │   ├── src/
+   
 ### Acknowledgement
 This research was supported in part by NSF grants CBET-2133739, CBET-1454226 and 4-VA grant to [Dr. Bahareh Behkam](https://me.vt.edu/people/faculty/behkam-bahareh.html), and NSF grant IIS-2107332 to [Dr. Anuj Karpatne](https://people.cs.vt.edu/karpatne/). Access to computing resources was provided by the Advanced Research Computing (ARC) Center at Virginia Tech.

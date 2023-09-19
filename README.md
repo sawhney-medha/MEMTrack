@@ -199,6 +199,8 @@ To get started with this project, follow these steps:
 - FOr Evaluation:
 
 ### Reproducing results on sample test data
+- */src/Automated-ConfScoreThresholds.ipynb* Notebook has the code for generating confidence score thresholds for trained models on the validation set.
+- *src/CollagenPRPlot.ipynb* Notebook generates the results on our test set and creates the plot to visualize it. 
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

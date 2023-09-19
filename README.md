@@ -152,10 +152,10 @@ To get started with this project, follow these steps:
         │   │   └── ...
         │   ├── src/
 
-### Running the Code
-The following section describes the training, inference, tracking and evaluation procedures. The codebase is built using PYthon, PyTorch and Detectron 2.0.
 
-#### Training Object Detector Model
+*The following sections describes the training, inference, tracking and evaluation procedures. The codebase is built using PYthon, PyTorch and Detectron 2.0.*
+
+### Training Object Detector Model
 - Run the training script */scripts/train.sh* to start training from the *MEMTRack/* root directory.
 - Update *exp_name*, *data_path* (feature directory) and *output_dir* paths as approriate.
 - The training parameters such as learning rate, epochs, etc. can be updated from the bash script.
@@ -166,13 +166,23 @@ The following section describes the training, inference, tracking and evaluation
   ```bash
    bash scripts/train.sh
 
-#### Inference from Trained Object Detetor Model
+### Inference from Trained Object Detetor Model
 - Run the inference script */scripts/inference.sh* from the *MEMTRack/* root directory.
 - Update *exp_name*, *data_path* (feature directory) and *model_dir* (directory with trained models) paths as approriate.
 - The inference.sh scripts calls the */src/inferenceBacteriaRetinanet_Motility.py* script, the paramters for which can be updated in the bash script. The output from inference is a json file containing object predictions, the json file is saved in the output_dir of the model.
 
   ```bash
    bash scripts/inference.sh
+
+### Tracking 
+- Run the tracking script */scripts/tracking.sh* from the *MEMTRack/* root directory.
+- The tracking scripts generates data using the object detector predictions in the format expected by the SORT algorithm and then implements tracking.
+- The script also calls a script to generate output videos from the tracked data.
+- The parameters to update for trackiing code generation such as confidence thresholds, or tracking parameters like min_age can be updated in the bash script.
+
+    ```bash
+    bash scripts/tracking.sh
+
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

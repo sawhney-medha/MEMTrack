@@ -155,7 +155,7 @@ To get started with this project, follow these steps:
 ### Running the Code
 The following section describes the training, inference, tracking and evaluation procedures. The codebase is built using PYthon, PyTorch and Detectron 2.0.
 
-#### Training
+#### Training Object Detector Model
 - Run the training script */scripts/train.sh* to start training from the *MEMTRack/* root directory.
 - Update *exp_name*, *data_path* (feature directory) and *output_dir* paths as approriate.
 - The training parameters such as learning rate, epochs, etc. can be updated from the bash script.
@@ -164,6 +164,14 @@ The following section describes the training, inference, tracking and evaluation
 
   ```bash
    bash scripts/train.sh
+
+#### Inference from Trained Object Detetor Model
+- Run the inference script */scripts/inference.sh* from the *MEMTRack/* root directory.
+- Update *exp_name*, *data_path* (feature directory) and *model_path* (output directory of the saved models) paths as approriate.
+- The inference.sh scripts calls the */src/inferenceBacteriaRetinanet_Motility.py* script, the paramters for which can be updated in the bash script. The output from inference is a json file containing object predictions, the json file is saved in the output_dir of the model.
+
+  ```bash
+   bash scripts/inference.sh
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

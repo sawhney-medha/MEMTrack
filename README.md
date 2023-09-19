@@ -161,13 +161,14 @@ The following section describes the training, inference, tracking and evaluation
 - The training parameters such as learning rate, epochs, etc. can be updated from the bash script.
 - There are two python scripts for training: *src/trainBacteriaRetinanetMotionData_Motility.py* and *src/trainBacteriaRetinanetMotionData_Motility_Val_loss.py*. The only difference is that the latter generates loss plots for validation set during training that the Detectron2 code does not automatically generate, which can be visualized in the *src/Train_Val_Loss_Curve.ipynb* notebook. The code for it has been taken from the following repository: https://gist.github.com/ortegatron/c0dad15e49c2b74de8bb09a5615d9f6b
 - The training script saves regular checkpoints along with the final model, which are stored in the *output_dir* specifed in the bash script.
+- Post trainng save the trained model checkpoint in */src/models/*
 
   ```bash
    bash scripts/train.sh
 
 #### Inference from Trained Object Detetor Model
 - Run the inference script */scripts/inference.sh* from the *MEMTRack/* root directory.
-- Update *exp_name*, *data_path* (feature directory) and *model_path* (output directory of the saved models) paths as approriate.
+- Update *exp_name*, *data_path* (feature directory) and *model_dir* (directory with trained models) paths as approriate.
 - The inference.sh scripts calls the */src/inferenceBacteriaRetinanet_Motility.py* script, the paramters for which can be updated in the bash script. The output from inference is a json file containing object predictions, the json file is saved in the output_dir of the model.
 
   ```bash

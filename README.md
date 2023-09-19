@@ -194,9 +194,7 @@ To get started with this project, follow these steps:
 
 ### Instructions for Inference on custom data using pre-trained models
 - Data loading and feature generation scripts are to be run as usual. Since inference test data will not have a Raw Data.csv, the code will uatomaticallly load data assuming no ground truth annotations were present in the data.
-- For Inferencce:
-- For Tracking:
-- FOr Evaluation:
+
 
 ### Reproducing results on sample test data
 - */src/Automated-ConfScoreThresholds.ipynb* Notebook has the code for generating confidence score thresholds for trained models on the validation set.

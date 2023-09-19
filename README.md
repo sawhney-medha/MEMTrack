@@ -1,4 +1,8 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![Python Version](https://img.shields.io/badge/python-3.8-blue) ![PyTorch Version](https://img.shields.io/badge/pytorch-1.9.0-blue) ![Detectron2 Version](https://img.shields.io/badge/Detectron2-v0.5.1-blue)
+
+
+
+
 # MEMTrack
 Deep learning based automated detection and tracking of bacteria in complex environments such as Collagen.
 
@@ -155,10 +159,14 @@ The following section describes the training, inference, tracking and evaluation
 - Run the training script */scripts/train.sh* to start training from the *MEMTRack/* root directory.
 - Update *exp_name*, *data_path* (feature directory) and *output_dir* paths as approriate.
 - The training parameters such as learning rate, epochs, etc. can be updated from the bash script.
-- There are two python scripts for training: *src/trainBacteriaRetinanetMotionData_Motility.py* and *src/trainBacteriaRetinanetMotionData_Motility_Val_loss.py*. The only difference is that the latter generates loss plots for validation set during training that the Detectron2 code does not automatically generate. The code for it has been taken from the following repository: https://gist.github.com/ortegatron/c0dad15e49c2b74de8bb09a5615d9f6b
+- There are two python scripts for training: *src/trainBacteriaRetinanetMotionData_Motility.py* and *src/trainBacteriaRetinanetMotionData_Motility_Val_loss.py*. The only difference is that the latter generates loss plots for validation set during training that the Detectron2 code does not automatically generate, which can be visualized in the *src/Train_Val_Loss_Curve.ipynb* notebook. The code for it has been taken from the following repository: https://gist.github.com/ortegatron/c0dad15e49c2b74de8bb09a5615d9f6b
+- The training script saves regular checkpoints along with the final model, which are stored in the *output_dir* specifed in the bash script.
 
   ```bash
    bash scripts/train.sh
-  
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 ## Acknowledgement
 This research was supported in part by NSF grants CBET-2133739, CBET-1454226 and 4-VA grant to [Dr. Bahareh Behkam](https://me.vt.edu/people/faculty/behkam-bahareh.html), and NSF grant IIS-2107332 to [Dr. Anuj Karpatne](https://people.cs.vt.edu/karpatne/). Access to computing resources was provided by the Advanced Research Computing (ARC) Center at Virginia Tech.

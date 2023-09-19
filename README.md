@@ -147,6 +147,18 @@ To get started with this project, follow these steps:
         |   |   |     └── ...
         │   │   └── ...
         │   ├── src/
-   
-### Acknowledgement
+
+### Running the Code
+The following section describes the training, inference, tracking and evaluation procedures. The codebase is built using PYthon, PyTorch and Detectron 2.0.
+
+#### Training
+- Run the training script */scripts/train.sh* to start training from the *MEMTRack/* root directory.
+- Update *exp_name*, *data_path* (feature directory) and *output_dir* paths as approriate.
+- The training parameters such as learning rate, epochs, etc. can be updated from the bash script.
+- There are two python scripts for training: *src/trainBacteriaRetinanetMotionData_Motility.py* and *src/trainBacteriaRetinanetMotionData_Motility_Val_loss.py*. The only difference is that the latter generates loss plots for validation set during training that the Detectron2 code does not automatically generate. The code for it has been taken from the following repository: https://gist.github.com/ortegatron/c0dad15e49c2b74de8bb09a5615d9f6b
+
+  ```bash
+   bash scripts/train.sh
+  
+## Acknowledgement
 This research was supported in part by NSF grants CBET-2133739, CBET-1454226 and 4-VA grant to [Dr. Bahareh Behkam](https://me.vt.edu/people/faculty/behkam-bahareh.html), and NSF grant IIS-2107332 to [Dr. Anuj Karpatne](https://people.cs.vt.edu/karpatne/). Access to computing resources was provided by the Advanced Research Computing (ARC) Center at Virginia Tech.

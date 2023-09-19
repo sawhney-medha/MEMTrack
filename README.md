@@ -183,6 +183,22 @@ To get started with this project, follow these steps:
     ```bash
     bash scripts/tracking.sh
 
+### Evaluation and Analysis
+- Run the evaluation script */scripts/test_set_eval.sh* from the *MEMTRack/* root directory.
+- The script will automatically generate *test_results_<step>.txt* for every step of the MEMTrack pipline and stor the True Postives, False Positives and False Negatives to generate results on test sets.
+
+  ```bash
+    bash scripts/test_set_eval.sh
+- Can also just call */scripts/run.sh* to automate the inference to evaluation process.
+- Finally run *src/CombinedTestSet-StepWiseEvaluation.ipynb* notebook to generate precision and recall values for an entire test set along with plots to visualize results
+
+### Instructions for Inference on custom data using pre-trained models
+- Data loading and feature generation scripts are to be run as usual. Since inference test data will not have a Raw Data.csv, the code will uatomaticallly load data assuming no ground truth annotations were present in the data.
+- For Inferencce:
+- For Tracking:
+- FOr Evaluation:
+
+### Reproducing results on sample test data
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

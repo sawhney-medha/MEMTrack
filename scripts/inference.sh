@@ -22,11 +22,11 @@ for video_num in  141 148 153 160 167 170
 do
    
    #To genearate testing files for all motilities
-      python Scripts/MotilityAnalysis/inferenceBacteriaRetinanet_Motility.py --source_path $source_path --output_dir $low_motility_model_path --annotations_train "All" --annotations_test "All" --video $video_num  --lr "0.00125" --epochs "90000" --test_dir $data_path 
+      python src/inferenceBacteriaRetinanet_Motility.py --source_path $source_path --output_dir $low_motility_model_path --annotations_train "All" --annotations_test "All" --video $video_num  --lr "0.00125" --epochs "90000" --test_dir $data_path 
 
-      python Scripts/MotilityAnalysis/inferenceBacteriaRetinanet_Motility.py --source_path $source_path --output_dir $mid_motility_model_path --annotations_train "Motility-mid" --annotations_test "Motility-mid" --video $video_num --test_dir $data_path  --lr "0.00125" --epochs "90000"
+      python src/MotilityAnalysis/inferenceBacteriaRetinanet_Motility.py --source_path $source_path --output_dir $mid_motility_model_path --annotations_train "Motility-mid" --annotations_test "Motility-mid" --video $video_num --test_dir $data_path  --lr "0.00125" --epochs "90000"
 
-      python Scripts/MotilityAnalysis/inferenceBacteriaRetinanet_Motility.py --source_path $source_path --output_dir $high_motility_model_path --annotations_train "Motility-high" --annotations_test "Motility-high" --video $video_num --test_dir $data_path  --lr "0.00125" --epochs "90000"
+      python src/MotilityAnalysis/inferenceBacteriaRetinanet_Motility.py --source_path $source_path --output_dir $high_motility_model_path --annotations_train "Motility-high" --annotations_test "Motility-high" --video $video_num --test_dir $data_path  --lr "0.00125" --epochs "90000"
       
-     python Scripts/MotilityAnalysis/inferenceBacteriaRetinanet_Motility.py --source_path $source_path --output_dir $low_motility_model_path --annotations_train "Motility-low" --annotations_test "Motility-low" --video $video_num --test_dir $data_path  --lr "0.00125" --epochs "90000"  
+     python src/MotilityAnalysis/inferenceBacteriaRetinanet_Motility.py --source_path $source_path --output_dir $low_motility_model_path --annotations_train "Motility-low" --annotations_test "Motility-low" --video $video_num --test_dir $data_path  --lr "0.00125" --epochs "90000"  
 done

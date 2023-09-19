@@ -1,0 +1,4 @@
+#ignore models
+models/*
+#zip files
+*.zip

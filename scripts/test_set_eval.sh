@@ -15,5 +15,5 @@ rm -rf $test_results_path
 
 for video_num in  141 148 153 160 167 170  
 do  
-     python Scripts/MotilityAnalysis/experiments/analysis/evaluation_step_wise_motility.py --video_map_path $video_map_path --data_path $data_path --video $video_num
+     python src/evaluation_step_wise_motility.py --video_map_path $video_map_path --data_path $data_path --video $video_num
 done

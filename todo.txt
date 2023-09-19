@@ -1,0 +1,7 @@
+1. Update low to no motility and wiggle to low
+2. add instructions for feature genration code
+3. update feature generation code
+4. update training scripts, add instructions for that
+5. add inference code, instructions for that
+6. inference on other data
+7. 

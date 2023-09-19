@@ -33,7 +33,7 @@ To get started with this project, follow these steps:
 **[Download Pretrained Models](https://drive.google.com/file/d/1agsLD5HV_VmDNpDhjHXTCAVmGUm2IQ6p/view?usp=sharing)**
 
 ### Data Preparation
-#### ADding Data
+#### Adding Data
 
 1. **Data Collection**
    -  We recorded bacteria (i.e., the micromotor in bacteria-based biohybrid microrobots) swimming behavior in collagen, as a tissue surrogate, and in an aqueous environment. In order to generate training, validation, and test datasets for MEMTrack, the microscopy videos acquired in collagen and in aqueous media were imported into ImageJ software. MTrackJ plugin was used to label all bacteria in each frame of each video manually, and their x and y coordinates were recorded.
@@ -64,57 +64,91 @@ To get started with this project, follow these steps:
 
 
 4. **Preprocessing Code:**
-   - RUn notebook
+   - Run the DataPreparation_Motility.ipynb notebook located in the *MEMTrack/src* directory and update the path variables (Cell 3) according to your directory structure.
+   - The code needs to be run for every video that needs to be loaded to *data/*
+   - The videomap.txt will automatically be generated after the preprocessing code
 
 6. **Preprocessed Data Directory:**
-   - Expected Directory Structure after preprocessing code:
+   - Expected Directory Structure after running the preprocessing code:
    
      ```
      ├── MEMTRack/
      │   ├──data/
      │   │   ├── videomap.txt
      │   │   ├── collagen/
-     |   |   |     ├── video55/
+     |   |   |     ├── video1/
      |   |   |     |    ├── frame1/
-     |   |   |     |    |    ├── annotations_motility_no/
-     |   |   |     |    |    |    ├── 0.txt
-     |   |   |     |    |    |    ├── 1.txt
-     |   |   |     |    |    |    └── ...
-     |   |   |     |    |    ├── annotations_motility_low/
-     |   |   |     |    |    ├── annotations_motility_mid/
-     |   |   |     |    |    ├── annotations_motility_high/
-     |   |   |     |    |    ├── bacteria/
-     |   |   |     |    |    |    ├── 1/
-     |   |   |     |    |    |    |    ├── xy_coord/
-     |   |   |     |    |    |    |          ├── 0.txt
-     |   |   |     |    |    |    |          ├── 1.txt
-     |   |   |     |    |    |    |          └── ...
-     |   |   |     |    |    |    |
-     |   |   |     |    |    |    ├── 2/
-     |   |   |     |    |    |    └── ...
-     |   |   |     |    |    ├── images/
-     |   |   |     |    |         ├── 0.tif
-     |   |   |     |    |         ├── 1.tif
-     |   |   |     |    |         └── ...
+     |   |   |     |         ├── annotations_motility_no/
+     |   |   |     |         |    ├── 0.txt
+     |   |   |     |         |    ├── 1.txt
+     |   |   |     |         |    └── ...
+     |   |   |     |         ├── annotations_motility_low/
+     |   |   |     |         ├── annotations_motility_mid/
+     |   |   |     |         ├── annotations_motility_high/
+     |   |   |     |         ├── bacteria/
+     |   |   |     |         |    ├── 1/
+     |   |   |     |         |    |    ├── xy_coord/
+     |   |   |     |         |    |          ├── 0.txt
+     |   |   |     |         |    |          ├── 1.txt
+     |   |   |     |         |    |          └── ...
+     |   |   |     |         |    |
+     |   |   |     |         |    ├── 2/
+     |   |   |     |         |    └── ...
+     |   |   |     |         ├── images/
+     |   |   |     |              ├── 0.tif
+     |   |   |     |              ├── 1.tif
+     |   |   |     |              └── ...
+     |   |   |     ├── video2/
      |   |   |     └── ...
      │   │   └── ...
-     │   ├── Raw Data.csv
+     │   ├── src/
      ```
   
 
 ### Data Usage
 
 7. **Feature Generation Code:**
-   - Run notebook
+   - Run the DataFeaturePreparation.ipynb notebook located in the *MEMTrack/src* directory and update the path variables (Cell 3) according to your directory structure.
+   - Also update path variables and choose feature generation method at the end of the notebook to generate and store features that would be used for training.
+   - The notebook provides multiple ways to generate features, the one recommended based on experiments on Collagen data is: *"optical_flow_median_back"*. This generates 3 channels for each frame: 1. Original Frame, 2. Consecutive OPtical Flow Vector and 3. Difference from Median Background.
+   - Similarly, *"optical flow median back"* with *"optical_flow_prior"=x* variable is optical flow from xth previous frame. *"diff_from_max_absolute_consecutive_frame_diff"* creates a feature for difference from the "max consecutive frame diff" feature, with a frame diff prior for xth frame diff
+   - The train/test/val split can be provided in this code as dict of video numbers that have been loaded and accordingly their fearture sets will be generated.
+
 
 6. **Final Data Directory:**
-   - Expected Directory Structure after preprocessing code:
-   - 
-7. **Data Loading:**
-   - Show how to load the preprocessed data within your codebase. Provide code snippets that demonstrate how to access and use the data for training, testing, or other tasks.
+   - Expected Directory Structure after feature generation code:
+  
+      ```
+     ├── MEMTRack/
+     │   ├──data/
+     │   ├──data_features/
+     │   │   ├── exp_name/
+     |   |   |     ├── data_features_set/
+     |   |   |     |    ├── train/
+     |   |   |     |    |     ├── annotations_motility_no/
+     |   |   |     |    |     |    ├── 0.txt
+     |   |   |     |    |     |    ├── 1.txt
+     |   |   |     |    |     |    └── ...
+     |   |   |     |    |     ├── annotations_motility_low/
+     |   |   |     |    |     ├── annotations_motility_mid/
+     |   |   |     |    |     ├── annotations_motility_high/
+     |   |   |     |    |     ├── images/
+     |   |   |     |    |          ├── 0.tif
+     |   |   |     |    |          ├── 1.tif
+     |   |   |     |    |          └── ...
+     |   |   |     |    |     ├── images_feature/
+     |   |   |     |    |          ├── 0.tif
+     |   |   |     |    |          ├── 1.tif
+     |   |   |     |    |          └── ...
+     |   |   |     |    ├── test/
+     |   |   |     |    ├── val/
+     |   |   |     ├── data_feature_video1/test/
+     |   |   |     ├── data_feature_video2/test/
+     |   |   |     └── ...
+     │   │   └── ...
+     │   ├── src/
 
-8. **Data Splitting:**
-   - If relevant, explain how to split the data into training, validation, and testing sets.
+     
 
 
 

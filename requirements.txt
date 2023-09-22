@@ -1,5 +1,5 @@
-
-detectron2==0.5+cu111
+pip==22.0.3
+numpy
 json5==0.9.6
 jsonlines==3.0.0
 jsonpatch==1.32
@@ -26,9 +26,9 @@ scikit-image==0.17.2
 scikit-learn==0.24.2
 scipy==1.5.4
 seaborn==0.11.2
-torch==1.9.1+cu111
+torch==1.9.1
 torchfile==0.1.0
 torchmetrics==0.5.1
-torchvision==0.10.1+cu111
+torchvision==0.10.1
 tqdm==4.62.3
 

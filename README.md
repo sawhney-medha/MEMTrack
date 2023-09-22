@@ -188,7 +188,7 @@ To get started with this project, follow these steps:
    bash scripts/train.sh
 
 ## Inference from Trained Object Detector Model
-- Run the inference script */scripts/inference.sh* from the *MEMTRack/* root directory.
+- Run the inference script */scripts/inference.sh* from the *MEMTrack/* root directory.
 - Update *exp_name*, *data_path* (feature directory) and *model_dir* (directory with trained models) paths as approriate.
 - The inference.sh scripts calls the */src/inferenceBacteriaRetinanet_Motility_v2.py* script, the paramters for which can be updated in the bash script. The output from inference is a json file containing object predictions, the json file is saved in the output_dir of the model.
 
@@ -196,7 +196,7 @@ To get started with this project, follow these steps:
    bash scripts/inference.sh
 
 ## Tracking 
-- Run the tracking script */scripts/tracking.sh* from the *MEMTRack/* root directory.
+- Run the tracking script */scripts/tracking.sh* from the *MEMTrack/* root directory.
 - The tracking scripts generates data using the object detector predictions in the format expected by the SORT algorithm and then implements tracking.
 - The script also calls a script to generate output videos from the tracked data.
 - The parameters to update for trackiing code generation such as confidence thresholds, or tracking parameters like min_age can be updated in the bash script.
@@ -205,7 +205,7 @@ To get started with this project, follow these steps:
     bash scripts/tracking.sh
 
 ## Evaluation and Analysis
-- Run the evaluation script */scripts/test_set_eval.sh* from the *MEMTRack/* root directory.
+- Run the evaluation script */scripts/test_set_eval.sh* from the *MEMTrack/* root directory.
 - The script will automatically generate *test_results_<step>.txt* for every step of the MEMTrack pipline and stor the True Postives, False Positives and False Negatives to generate results on test sets.
 
   ```bash

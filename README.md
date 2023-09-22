@@ -39,14 +39,14 @@ To get started with this project, follow these steps:
 
 ### Reproducing results on sample test data
 - **[Download Sample Data](https://drive.google.com/file/d/1hheW9voQhECVOaTHkE3i3LO0WhzKE_XP/view?usp=sharing)**
-- Run Data Loading ( [Adding Data](#adding-data) and [Preprocessing Data](#preprocessing-data)) and [Feature Generation](#data-usage) Scripts for sample data.
+- Run Data Loading ([Adding Data](#adding-data) and [Preprocessing Data](#preprocessing-data)) and [Feature Generation](#data-usage) Scripts for sample data.
 - Follow [Inference](#inference-from-trained-object-detector-model), [Tracking](#tracking) and [Evaluation](#evaluation-and-analysis) instructions below. 
 - */src/Automated-ConfScoreThresholds.ipynb* Notebook has the code for generating confidence score thresholds for trained models on the validation set.
 - *src/CollagenPRPlot.ipynb* Notebook generates the results on our test set and creates the plot to visualize it. 
 
 ### Inference on custom data using pre-trained models
 -  Generate Data and store in the same format as mentioned in [Adding Data](#adding-data)
--  Run Data Loading ( [Adding Data](#adding-data) and [Preprocessing Data](#preprocessing-data)) and [Feature Generation](#data-usage) Scripts for custom data.
+-  Run Data Loading ([Adding Data](#adding-data) and [Preprocessing Data](#preprocessing-data)) and [Feature Generation](#data-usage) Scripts for custom data.
 -  Ensure custom data is in the mentioned format, else write your own code to have the same output format as the preprocessing code.
 -  Since inference test data will not have a Raw Data.csv, the code will automaticallly load data assuming no ground truth annotations were present in the data.
 -  Run Inference script and follow instructions in [Inference from Trained Object Detector Model](#inference-from-trained-object-detector-Model). The *coco_instances* json file will have a list of all predicted bounding boxes for every frame.
@@ -174,7 +174,7 @@ To get started with this project, follow these steps:
         │   ├── src/
 
 
-*The following sections describes the training, inference, tracking and evaluation procedures. The codebase is built using PYthon, PyTorch and Detectron 2.0.*
+*The following sections describes the training, inference, tracking and evaluation procedures. The codebase is built using Python, PyTorch and Detectron 2.0.*
 
 ## Training Object Detector Model
 - Run the training script */scripts/train.sh* to start training from the *MEMTRack/* root directory.
@@ -213,7 +213,8 @@ To get started with this project, follow these steps:
 - Can also just call */scripts/run.sh* to automate the inference to evaluation process.
 - Finally run *src/CombinedTestSet-StepWiseEvaluation.ipynb* notebook to generate precision and recall values for an entire test set along with plots to visualize results
 
-  
+## Debugging
+- All known issues are consistently updated in *debug.md*. Please refer to it before raising an issue. 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 

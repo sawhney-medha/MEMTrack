@@ -6,11 +6,6 @@
 # MEMTrack
 Deep learning based automated detection and tracking of bacteria in complex environments such as Collagen.
 
-## Repository Status
-🚧 This repository is currently undergoing updates and is a work in progress. 🚧
-
-We appreciate your patience and understanding. Feel free to check back later for the latest updates and improvements.
-
 ## Project Description
 Tracking microrobots is a challenging task, considering their minute size and high speed. As the field progresses towards developing microrobots for biomedical applications and studying them in physiologically relevant or in vivo environments, this challenge is exacerbated by the dense surrounding environments with feature size and shape comparable to those of microrobots. To address this challenge, we developed Motion Enhanced Multi-level Tracker (MEMTrack), a robust pipeline for detecting and tracking micro-motors in bright-field microscopy videos using synthetic motion features, deep learning-based object detection, and a modified Simple Online and Real-time Tracking (SORT) algorithm with interpolation for tracking. Our object detection approach combines different models based on the object’s motion pattern. We trained and validated our model using bacterial micro- motors in the tissue-like collagen environment and tested it in collagen and liquid (aqueous) media. We demonstrate that MEMTrack can accurately predict and track even the most challenging bacterial micro-motors missed by skilled human annotators, achieving precision and recall of 77% and 48% in collagen and 94% and 35% in liquid media, respectively. We also show that MEMTrack is able to accurately quantitate the average speed of bacterial micromotors with no statistically significant difference from the laboriously produced manual tracking data. Our proposed pipeline not only represents a significant contribution to the field of microrobot image analysis and tracking using computer vision but also opens the potential of applying deep learning methods in vision-based control of microrobots for various applications, including disease diagnosis and treatment.
 
@@ -45,7 +40,7 @@ To get started with this project, follow these steps:
 ### Reproducing results on sample test data
 - **[Download Sample Data](https://drive.google.com/file/d/1hheW9voQhECVOaTHkE3i3LO0WhzKE_XP/view?usp=sharing)**
 - Run Data Loading ( [Adding Data](#adding-data) and [Preprocessing Data](#preprocessing-data)) and [Feature Generation](#data-usage) Scripts for sample data.
-- Follow Inference, Tracking and Evaluation instructions below. 
+- Follow [Inference](#inference-from-trained-object-detector-model), [Tracking](#tracking) and [Evaluation](#evaluation-and-analysis) instructions below. 
 - */src/Automated-ConfScoreThresholds.ipynb* Notebook has the code for generating confidence score thresholds for trained models on the validation set.
 - *src/CollagenPRPlot.ipynb* Notebook generates the results on our test set and creates the plot to visualize it. 
 
@@ -54,13 +49,13 @@ To get started with this project, follow these steps:
 -  Run Data Loading ( [Adding Data](#adding-data) and [Preprocessing Data](#preprocessing-data)) and [Feature Generation](#data-usage) Scripts for custom data.
 -  Ensure custom data is in the mentioned format, else write your own code to have the same output format as the preprocessing code.
 -  Since inference test data will not have a Raw Data.csv, the code will automaticallly load data assuming no ground truth annotations were present in the data.
--  Run Inference script and follow instractions in [Inference from Trained Object Detector Model](#inference-from-trained-object-detector-Model). The coc_instances json file will have a list of all predicted bounding boxes for every frame.
+-  Run Inference script and follow instructions in [Inference from Trained Object Detector Model](#inference-from-trained-object-detector-Model). The *coco_instances* json file will have a list of all predicted bounding boxes for every frame.
 -  Run Tracking scripts to generate tracklets
 
 
 ### Evaluation on custom data using pre-trained models
 - Follow same instructions as Inference but have an updated RawData.csv with ground truth annotations.
-- For evaluation follow instructions as mentioned in [Evaluation and Analysis](evaluation-and-analysis)
+- For evaluation follow instructions as mentioned in [Evaluation and Analysis](#evaluation-and-analysis)
 
 ## Data Preparation
 ### Adding Data

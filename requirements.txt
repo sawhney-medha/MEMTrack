@@ -19,6 +19,7 @@ natsort==7.1.1
 numpy==1.19.5
 opencv-python==4.5.5.64
 opencv-python-headless==4.5.4.60
+openpyxl
 pandas==1.1.5
 plotly==5.11.0
 pycocotools @ git+https://github.com/cocodataset/cocoapi.git@8c9bcc3cf640524c4c20a9c40e89cb6a2f2fa0e9#subdirectory=PythonAPI

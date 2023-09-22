@@ -74,7 +74,6 @@ To get started with this project, follow these steps:
 
 #### Preprocessing Data
 
-
 4. **Preprocessing Code:**
    - Run the DataPreparation_Motility.ipynb notebook located in the *MEMTrack/src* directory and update the path variables (Cell 3) according to your directory structure.
    - The code needs to be run for every video that needs to be loaded to *data/*
@@ -201,6 +200,7 @@ To get started with this project, follow these steps:
 - Finally run *src/CombinedTestSet-StepWiseEvaluation.ipynb* notebook to generate precision and recall values for an entire test set along with plots to visualize results
 
 ### Instructions for Inference on custom data using pre-trained models
+- Generate Data and store in the same format as mentioned in [Adding Data](#adding-data)
 - Data loading and feature generation scripts are to be run as usual. Since inference test data will not have a Raw Data.csv, the code will uatomaticallly load data assuming no ground truth annotations were present in the data.
 
 

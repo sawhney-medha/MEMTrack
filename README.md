@@ -42,6 +42,7 @@ To get started with this project, follow these steps:
 
 **[Download Pretrained Models](https://drive.google.com/file/d/1agsLD5HV_VmDNpDhjHXTCAVmGUm2IQ6p/view?usp=sharing)**
 
+
 ### Data Preparation
 #### Adding Data
 
@@ -61,6 +62,7 @@ To get started with this project, follow these steps:
      │   │   └── ...
      │   ├── Raw Data.csv
      ```
+**[Download Sample Data](https://drive.google.com/file/d/1hheW9voQhECVOaTHkE3i3LO0WhzKE_XP/view?usp=sharing)** 
 
 3. **Data Format:**
   - RawData.csv should have the following columns:
@@ -203,6 +205,7 @@ To get started with this project, follow these steps:
 
 
 ### Reproducing results on sample test data
+- **[Download Sample Data](https://drive.google.com/file/d/1hheW9voQhECVOaTHkE3i3LO0WhzKE_XP/view?usp=sharing)** 
 - */src/Automated-ConfScoreThresholds.ipynb* Notebook has the code for generating confidence score thresholds for trained models on the validation set.
 - *src/CollagenPRPlot.ipynb* Notebook generates the results on our test set and creates the plot to visualize it. 
 

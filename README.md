@@ -42,9 +42,25 @@ To get started with this project, follow these steps:
 
 **[Download Pretrained Models](https://drive.google.com/file/d/1agsLD5HV_VmDNpDhjHXTCAVmGUm2IQ6p/view?usp=sharing)**
 
+### Reproducing results on sample test data
+- **[Download Sample Data](https://drive.google.com/file/d/1hheW9voQhECVOaTHkE3i3LO0WhzKE_XP/view?usp=sharing)**
+- Run Data Loading ( [Adding Data](#adding-data) and [Preprocessing Data](#preprocessing-data)) and [Feature Generation](#data-usage) Scripts for sample data. 
+- */src/Automated-ConfScoreThresholds.ipynb* Notebook has the code for generating confidence score thresholds for trained models on the validation set.
+- *src/CollagenPRPlot.ipynb* Notebook generates the results on our test set and creates the plot to visualize it. 
 
-### Data Preparation
-#### Adding Data
+### Inference on custom data using pre-trained models
+-  Generate Data and store in the same format as mentioned in [Adding Data](#adding-data)
+-  Run Data Loading ( [Adding Data](#adding-data) and [Preprocessing Data](#preprocessing-data)) and [Feature Generation](#data-usage) Scripts for custom data.
+-  Ensure custom data is in the mentioned format, else write your own code to have the same output format as the preprocessing code.
+-  Since inference test data will not have a Raw Data.csv, the code will automaticallly load data assuming no ground truth annotations were present in the data.
+
+
+### Evaluation on custom data using pre-trained models
+- Follow same instructions as Inference but have an updated RawData.csv with ground truth annotations.
+- For evaluation instructions as mentioned in [Evaluation and Analysis](evaluation-and-analysis)
+
+## Data Preparation
+### Adding Data
 
 1. **Data Collection**
    -  We recorded bacteria (i.e., the micromotor in bacteria-based biohybrid microrobots) swimming behavior in collagen, as a tissue surrogate, and in an aqueous environment. In order to generate training, validation, and test datasets for MEMTrack, the microscopy videos acquired in collagen and in aqueous media were imported into ImageJ software. MTrackJ plugin was used to label all bacteria in each frame of each video manually, and their x and y coordinates were recorded.
@@ -72,7 +88,7 @@ To get started with this project, follow these steps:
       - "y [pixel]"  --> y coordinate
       - "subpopulation" -->containing "N"/"L"/"M"/"H" for subpopulations (Non Motile/Low Motility/Mid Motility/HIgh Motility)
 
-#### Preprocessing Data
+### Preprocessing Data
 
 4. **Preprocessing Code:**
    - Run the DataPreparation_Motility.ipynb notebook located in the *MEMTrack/src* directory and update the path variables (Cell 3) according to your directory structure.
@@ -116,7 +132,7 @@ To get started with this project, follow these steps:
      ```
   
 
-#### Data Usage
+### Data Usage
 
 7. **Feature Generation Code:**
    - Run the DataFeaturePreparation.ipynb notebook located in the *MEMTrack/src* directory and update the path variables (Cell 3) according to your directory structure.
@@ -162,7 +178,7 @@ To get started with this project, follow these steps:
 
 *The following sections describes the training, inference, tracking and evaluation procedures. The codebase is built using PYthon, PyTorch and Detectron 2.0.*
 
-### Training Object Detector Model
+## Training Object Detector Model
 - Run the training script */scripts/train.sh* to start training from the *MEMTRack/* root directory.
 - Update *exp_name*, *data_path* (feature directory) and *output_dir* paths as approriate.
 - The training parameters such as learning rate, epochs, etc. can be updated from the bash script.
@@ -173,7 +189,7 @@ To get started with this project, follow these steps:
   ```bash
    bash scripts/train.sh
 
-### Inference from Trained Object Detetor Model
+## Inference from Trained Object Detetor Model
 - Run the inference script */scripts/inference.sh* from the *MEMTRack/* root directory.
 - Update *exp_name*, *data_path* (feature directory) and *model_dir* (directory with trained models) paths as approriate.
 - The inference.sh scripts calls the */src/inferenceBacteriaRetinanet_Motility.py* script, the paramters for which can be updated in the bash script. The output from inference is a json file containing object predictions, the json file is saved in the output_dir of the model.
@@ -181,7 +197,7 @@ To get started with this project, follow these steps:
   ```bash
    bash scripts/inference.sh
 
-### Tracking 
+## Tracking 
 - Run the tracking script */scripts/tracking.sh* from the *MEMTRack/* root directory.
 - The tracking scripts generates data using the object detector predictions in the format expected by the SORT algorithm and then implements tracking.
 - The script also calls a script to generate output videos from the tracked data.
@@ -190,7 +206,7 @@ To get started with this project, follow these steps:
     ```bash
     bash scripts/tracking.sh
 
-### Evaluation and Analysis
+## Evaluation and Analysis
 - Run the evaluation script */scripts/test_set_eval.sh* from the *MEMTRack/* root directory.
 - The script will automatically generate *test_results_<step>.txt* for every step of the MEMTrack pipline and stor the True Postives, False Positives and False Negatives to generate results on test sets.
 
@@ -199,17 +215,6 @@ To get started with this project, follow these steps:
 - Can also just call */scripts/run.sh* to automate the inference to evaluation process.
 - Finally run *src/CombinedTestSet-StepWiseEvaluation.ipynb* notebook to generate precision and recall values for an entire test set along with plots to visualize results
 
-
-### Reproducing results on sample test data
-- **[Download Sample Data](https://drive.google.com/file/d/1hheW9voQhECVOaTHkE3i3LO0WhzKE_XP/view?usp=sharing)**
-- Run Data Loading and Feature Generation Scripts for sample data.  [Adding Data](#adding-data) [Preprocessing Data](#preprocessing-data)
-- */src/Automated-ConfScoreThresholds.ipynb* Notebook has the code for generating confidence score thresholds for trained models on the validation set.
-- *src/CollagenPRPlot.ipynb* Notebook generates the results on our test set and creates the plot to visualize it. 
-
-### Inference on custom data using pre-trained models
-- Data loading and feature generation scripts are to be run as usual. Since inference test data will not have a Raw Data.csv, the code will uatomaticallly load data assuming no ground truth annotations were present in the data.
-   - Generate Data and store in the same format as mentioned in [Adding Data](#adding-data)
-   - Preprocess Data following the instructions in [Preprocessing Data](#preprocessing-data)
   
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

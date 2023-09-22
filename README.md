@@ -120,8 +120,8 @@ To get started with this project, follow these steps:
 
 7. **Feature Generation Code:**
    - Run the DataFeaturePreparation.ipynb notebook located in the *MEMTrack/src* directory and update the path variables (Cell 3) according to your directory structure.
-   - Also update path variables and choose feature generation method at the end of the notebook to generate and store features that would be used for training.
-   - The notebook provides multiple ways to generate features, the one recommended based on experiments on Collagen data is: *"optical_flow_median_back"*. This generates 3 channels for each frame: 1. Original Frame, 2. Consecutive OPtical Flow Vector and 3. Difference from Median Background.
+   - Also update path variables and choose feature generation method at the end of the notebook (Cell 18 and 19 for Training Data and Cell 20 for Test/Inefrence) to generate and store features that would be used for training.
+   - The notebook provides multiple ways to generate features, the one recommended based on experiments on Collagen data is: *"optical_flow_median_back"*. This generates 3 channels for each frame: 1. Original Frame, 2. Consecutive Optical Flow Vector and 3. Difference from Median Background.
    - Similarly, *"optical flow median back"* with *"optical_flow_prior"=x* variable is optical flow from xth previous frame. *"diff_from_max_absolute_consecutive_frame_diff"* creates a feature for difference from the "max consecutive frame diff" feature, with a frame diff prior for xth frame diff
    - The train/test/val split can be provided in this code as dict of video numbers that have been loaded and accordingly their fearture sets will be generated.
 

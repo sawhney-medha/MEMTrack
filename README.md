@@ -28,10 +28,16 @@ To get started with this project, follow these steps:
    ```bash
    cd MEMTrack
 
-3. Install the required dependencies using pip:
+3. Create environemnt and install the required dependencies using pip:
 
    ```bash
+    python3.8 -m venv memtrack_env
+    source memtrack_env/bin/activate
+    cd MEMTrack
     pip install -r requirements.txt
+    python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
+
+   
 4. Download models.zip containing pre-trained and store it in *MEMTrack/models*
 
 **[Download Pretrained Models](https://drive.google.com/file/d/1agsLD5HV_VmDNpDhjHXTCAVmGUm2IQ6p/view?usp=sharing)**

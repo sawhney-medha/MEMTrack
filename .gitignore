@@ -1,4 +1,13 @@
 #ignore models
 models/*
+
 #zip files
 *.zip
+
+#ignore data
+data/*
+!data/sample_videomap.txt
+
+
+#ipynb checkpoints
+*/.ipynb_checkpoints

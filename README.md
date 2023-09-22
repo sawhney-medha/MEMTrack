@@ -44,7 +44,8 @@ To get started with this project, follow these steps:
 
 ### Reproducing results on sample test data
 - **[Download Sample Data](https://drive.google.com/file/d/1hheW9voQhECVOaTHkE3i3LO0WhzKE_XP/view?usp=sharing)**
-- Run Data Loading ( [Adding Data](#adding-data) and [Preprocessing Data](#preprocessing-data)) and [Feature Generation](#data-usage) Scripts for sample data. 
+- Run Data Loading ( [Adding Data](#adding-data) and [Preprocessing Data](#preprocessing-data)) and [Feature Generation](#data-usage) Scripts for sample data.
+- Follow Inference, Tracking and Evaluation instructions below. 
 - */src/Automated-ConfScoreThresholds.ipynb* Notebook has the code for generating confidence score thresholds for trained models on the validation set.
 - *src/CollagenPRPlot.ipynb* Notebook generates the results on our test set and creates the plot to visualize it. 
 
@@ -53,11 +54,13 @@ To get started with this project, follow these steps:
 -  Run Data Loading ( [Adding Data](#adding-data) and [Preprocessing Data](#preprocessing-data)) and [Feature Generation](#data-usage) Scripts for custom data.
 -  Ensure custom data is in the mentioned format, else write your own code to have the same output format as the preprocessing code.
 -  Since inference test data will not have a Raw Data.csv, the code will automaticallly load data assuming no ground truth annotations were present in the data.
+-  Run Inference script and follow instractions in [Inference from Trained Object Detector Model](#inference-from-trained-object-detector-Model). The coc_instances json file will have a list of all predicted bounding boxes for every frame.
+-  Run Tracking scripts to generate tracklets
 
 
 ### Evaluation on custom data using pre-trained models
 - Follow same instructions as Inference but have an updated RawData.csv with ground truth annotations.
-- For evaluation instructions as mentioned in [Evaluation and Analysis](evaluation-and-analysis)
+- For evaluation follow instructions as mentioned in [Evaluation and Analysis](evaluation-and-analysis)
 
 ## Data Preparation
 ### Adding Data
@@ -86,7 +89,7 @@ To get started with this project, follow these steps:
       - "PID" --> Picture Id/Frame Number
       - "x [pixel]"" -->  x coordinate
       - "y [pixel]"  --> y coordinate
-      - "subpopulation" -->containing "N"/"L"/"M"/"H" for subpopulations (Non Motile/Low Motility/Mid Motility/HIgh Motility)
+      - "subpopulation" -->containing "N"/"L"/"M"/"H" for subpopulations (Non Motile/Low Motility/Mid Motility/High Motility)
 
 ### Preprocessing Data
 
@@ -189,10 +192,10 @@ To get started with this project, follow these steps:
   ```bash
    bash scripts/train.sh
 
-## Inference from Trained Object Detetor Model
+## Inference from Trained Object Detector Model
 - Run the inference script */scripts/inference.sh* from the *MEMTRack/* root directory.
 - Update *exp_name*, *data_path* (feature directory) and *model_dir* (directory with trained models) paths as approriate.
-- The inference.sh scripts calls the */src/inferenceBacteriaRetinanet_Motility.py* script, the paramters for which can be updated in the bash script. The output from inference is a json file containing object predictions, the json file is saved in the output_dir of the model.
+- The inference.sh scripts calls the */src/inferenceBacteriaRetinanet_Motility_v2.py* script, the paramters for which can be updated in the bash script. The output from inference is a json file containing object predictions, the json file is saved in the output_dir of the model.
 
   ```bash
    bash scripts/inference.sh

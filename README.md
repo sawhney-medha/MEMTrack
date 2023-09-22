@@ -200,8 +200,10 @@ To get started with this project, follow these steps:
 - Finally run *src/CombinedTestSet-StepWiseEvaluation.ipynb* notebook to generate precision and recall values for an entire test set along with plots to visualize results
 
 ### Instructions for Inference on custom data using pre-trained models
-- Generate Data and store in the same format as mentioned in [Adding Data](#adding-data)
 - Data loading and feature generation scripts are to be run as usual. Since inference test data will not have a Raw Data.csv, the code will uatomaticallly load data assuming no ground truth annotations were present in the data.
+- Generate Data and store in the same format as mentioned in [Adding Data](#adding-data)
+- Preprocess Data following the instructions in [Preprocessing Data](#preprocessing-data)
+  
 
 
 ### Reproducing results on sample test data

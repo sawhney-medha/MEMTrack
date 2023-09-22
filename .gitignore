@@ -7,7 +7,7 @@ models/*
 #ignore data
 data/*
 !data/sample_videomap.txt
-
+/DataFeatures/*
 
 #ipynb checkpoints
 */.ipynb_checkpoints

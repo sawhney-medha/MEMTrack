@@ -199,18 +199,18 @@ To get started with this project, follow these steps:
 - Can also just call */scripts/run.sh* to automate the inference to evaluation process.
 - Finally run *src/CombinedTestSet-StepWiseEvaluation.ipynb* notebook to generate precision and recall values for an entire test set along with plots to visualize results
 
-### Instructions for Inference on custom data using pre-trained models
-- Data loading and feature generation scripts are to be run as usual. Since inference test data will not have a Raw Data.csv, the code will uatomaticallly load data assuming no ground truth annotations were present in the data.
-- Generate Data and store in the same format as mentioned in [Adding Data](#adding-data)
-- Preprocess Data following the instructions in [Preprocessing Data](#preprocessing-data)
-  
-
 
 ### Reproducing results on sample test data
-- **[Download Sample Data](https://drive.google.com/file/d/1hheW9voQhECVOaTHkE3i3LO0WhzKE_XP/view?usp=sharing)** 
+- **[Download Sample Data](https://drive.google.com/file/d/1hheW9voQhECVOaTHkE3i3LO0WhzKE_XP/view?usp=sharing)**
+- Run Data Loading and Feature Generation Scripts for sample data.  [Adding Data](#adding-data) [Preprocessing Data](#preprocessing-data)
 - */src/Automated-ConfScoreThresholds.ipynb* Notebook has the code for generating confidence score thresholds for trained models on the validation set.
 - *src/CollagenPRPlot.ipynb* Notebook generates the results on our test set and creates the plot to visualize it. 
 
+### Inference on custom data using pre-trained models
+- Data loading and feature generation scripts are to be run as usual. Since inference test data will not have a Raw Data.csv, the code will uatomaticallly load data assuming no ground truth annotations were present in the data.
+   - Generate Data and store in the same format as mentioned in [Adding Data](#adding-data)
+   - Preprocess Data following the instructions in [Preprocessing Data](#preprocessing-data)
+  
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 

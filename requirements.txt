@@ -1,5 +1,6 @@
 pip==22.0.3
 numpy
+filterpy==1.4.5
 json5==0.9.6
 jsonlines==3.0.0
 jsonpatch==1.32
@@ -32,4 +33,3 @@ torchfile==0.1.0
 torchmetrics==0.5.1
 torchvision==0.10.1
 tqdm==4.62.3
-

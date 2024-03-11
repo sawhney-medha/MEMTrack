@@ -40,7 +40,7 @@ To get started with this project, follow these steps:
 **[Download Pretrained Models](https://drive.google.com/file/d/1agsLD5HV_VmDNpDhjHXTCAVmGUm2IQ6p/view?usp=sharing)**
 
 ### Reproducing results on sample test data
-- **[Download Sample Data](https://drive.google.com/file/d/1hheW9voQhECVOaTHkE3i3LO0WhzKE_XP/view?usp=sharing)**
+- **[Download Sample Data](https://drive.google.com/file/d/1YHgT--xyMrQYeyaBYiIxIfLdTu2nW7nQ/view?usp=sharing)**
 - Run Data Loading ([Adding Data](#adding-data) and [Preprocessing Data](#preprocessing-data)) and [Feature Generation](#data-usage) Scripts for sample data.
 - Follow [Inference](#inference-from-trained-object-detector-model), [Tracking](#tracking) and [Evaluation](#evaluation-and-analysis) instructions below. 
 - */src/Automated-ConfScoreThresholds.ipynb* Notebook has the code for generating confidence score thresholds for trained models on the validation set.

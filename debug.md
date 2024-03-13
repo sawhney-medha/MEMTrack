@@ -12,3 +12,8 @@ ImportError: lap requires numpy, please "pip install numpy"
 
    ```bash
    pip install numpy
+
+3. **Installing pycocotools**
+Gthub link fails
+   ```bash
+   pip install pycocotools>=2.0.2

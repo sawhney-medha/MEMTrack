@@ -18,6 +18,7 @@ ap.add_argument('--plot_gt', action='store_true')
 ap.add_argument('--plot', action='store_true')
 ap.add_argument('--custom_test_dir', type=str, metavar='CELL PATH')
 ap.add_argument('--min_track_len', default = 60, type=int)
+ap.add_argument('--video_map_path', default="data/videomap.txt", type=str, metavar='PATH')
 args = ap.parse_args()
 video_num = args.video_num
 
@@ -32,7 +33,7 @@ else:
     op_path = args.data_path +  f"/data_video{video_num}_feature_optical_flow_median_back_2pyr_18win_background_img/test/"
 tracking_predictions_path = op_path + f"./video{video_num}_tracking_predictions.json"
 
-video_map_path = "/data/medha/Bacteria/Data/videomap.txt"
+video_map_path = args.video_map_path
 video_map = open(video_map_path,'r',)
 header = [x.strip() for x in (video_map.readline().strip()).split(",")]
 video_num_id = header.index("video_num")

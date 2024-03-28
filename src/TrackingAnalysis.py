@@ -13,7 +13,8 @@ from natsort import natsorted
 
 ap = argparse.ArgumentParser(description='Training')
 ap.add_argument('--video_num', default="", type=str, metavar='VIDEO')
-ap.add_argument('--data_path', default="19", type=str, metavar='PATH')
+ap.add_argument('--data_feature_path', default="19", type=str, metavar='PATH')
+ap.add_argument('--data_root_path', default="19", type=str, metavar='PATH')
 ap.add_argument('--plot_gt', action='store_true')
 ap.add_argument('--plot', action='store_true')
 ap.add_argument('--custom_test_dir', type=str, metavar='CELL PATH')
@@ -30,7 +31,7 @@ if args.custom_test_dir:
     video_num= ""
     #print("video_num", video_num)
 else:
-    op_path = args.data_path +  f"/data_video{video_num}_feature_optical_flow_median_back_2pyr_18win_background_img/test/"
+    op_path = args.data_feature_path +  f"/data_video{video_num}_feature_optical_flow_median_back_2pyr_18win_background_img/test/"
 tracking_predictions_path = op_path + f"./video{video_num}_tracking_predictions.json"
 
 video_map_path = args.video_map_path
@@ -203,7 +204,7 @@ all_preds = []
 if args.custom_test_dir:
     final_preds_path = args.custom_test_dir
 else:
-    final_preds_path = args.data_path + f"/data_video{video_num}_feature_optical_flow_median_back_2pyr_18win_background_img/test/"
+    final_preds_path = args.data_feature_path + f"/data_video{video_num}_feature_optical_flow_median_back_2pyr_18win_background_img/test/"
 final_preds_path += "coco_instances_results_final.json"
 for track_id in track_id_filtered_length.keys():
     for pred in track_id_filtered_length[track_id]:
@@ -237,7 +238,7 @@ image_id_filtered = groupby_imageid(track_id_filtered_length)
 if args.plot :
     
     #create images with labels plot
-    data_dir = "/data/medha/Bacteria/Data/"
+    data_dir = args.data_path
     data_sub_dirs = glob.glob(f'{data_dir}/*')  
     #print("data dirs: ", data_sub_dirs)
     video_dirs = glob.glob(f'{data_dir}/*/*')  
@@ -253,7 +254,7 @@ if args.plot :
     if args.custom_test_dir:
         save_path = args.custom_test_dir +"tracklets-filtered/"
     else:
-        save_path = args.data_path + f"/data_video{video_num}_feature_optical_flow_median_back_2pyr_18win_background_img/test/tracklets-filtered/" 
+        save_path = args.data_feature_path + f"/data_video{video_num}_feature_optical_flow_median_back_2pyr_18win_background_img/test/tracklets-filtered/" 
     shutil.rmtree(save_path, ignore_errors=True)
     os.makedirs(save_path, exist_ok=True)
     

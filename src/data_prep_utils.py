@@ -63,6 +63,11 @@ def add_video_to_videomap(video_map_path, video_dir, final_data_dir):
     video_num = find_next_video_num(final_data_dir)
     print("curr video num: ",video_num)
     
+    if not os.path.exists(video_map_path):
+            video_map = open(video_map_path,'a+')
+            video_map.write("video_num, strain")
+            video_map.close()
+    
     video_map = open(video_map_path,'a+')
     video_strain = os.path.basename(video_dir.strip().strip("/"))
     video_map.write("\n")

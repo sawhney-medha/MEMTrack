@@ -1,4 +1,4 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![Python Version](https://img.shields.io/badge/python-3.8-blue) ![PyTorch Version](https://img.shields.io/badge/pytorch-1.9.0-blue) ![Detectron2 Version](https://img.shields.io/badge/Detectron2-v0.5.1-blue)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![Python Version](https://img.shields.io/badge/python-3.8-blue) ![PyTorch Version](https://img.shields.io/badge/pytorch-1.9.0-blue) ![Detectron2 Version](https://img.shields.io/badge/Detectron2-v0.5.1-blue) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1PltZ8q_AEmVxoSoh5gog288GcPfOgvZy?usp=sharing)
 
 
 

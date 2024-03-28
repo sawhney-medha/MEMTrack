@@ -211,3 +211,4 @@ print(inference_on_dataset(predictor.model, val_loader, evaluator))
 
 os.system(f'cp {output_dir}/coco_instances_results.json {dest_test}/coco_instances_results_{args.annotations_test}.json')  
 os.system(f'cp {output_dir}/boardetect_test_coco_format.json {dest_test}/boardetect_test_coco_format_{args.annotations_test}.json')  
+os.system(f'cp {dest_test}/test.json {dest_test}/test_{args.annotations_test}.json')

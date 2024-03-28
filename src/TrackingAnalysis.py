@@ -238,7 +238,7 @@ image_id_filtered = groupby_imageid(track_id_filtered_length)
 if args.plot :
     
     #create images with labels plot
-    data_dir = args.data_path
+    data_dir = args.data_root_path
     data_sub_dirs = glob.glob(f'{data_dir}/*')  
     #print("data dirs: ", data_sub_dirs)
     video_dirs = glob.glob(f'{data_dir}/*/*')  

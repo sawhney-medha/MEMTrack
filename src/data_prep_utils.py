@@ -475,7 +475,8 @@ def process_data(folder, src, final_data_dir, out_sub_dir, videomap="videomap.tx
     
     if os.path.exists(video_map_path) and video_in_videomap(video_map_path, folder):
         print("video alread processed: ", folder.split(".zip")[0])
-        sys.exit(0) 
+        raise Exception("video alread processed")
+        return
     
     # add video to videomap
     video_num = add_video_to_videomap(video_map_path, video_dir, final_data_dir)
@@ -497,7 +498,8 @@ def process_data(folder, src, final_data_dir, out_sub_dir, videomap="videomap.tx
                     #print(minivideo)
                     create_video(os.path.join(data_path,video,minivideo))
     
-    print("Video processed")
+    print(f"Video {video_num} processed")
+    return video_num
     
     
     

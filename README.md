@@ -9,11 +9,11 @@ Deep learning based automated detection and tracking of bacteria in complex envi
 ## Project Description
 Tracking microrobots is a challenging task, considering their minute size and high speed. As the field progresses towards developing microrobots for biomedical applications and studying them in physiologically relevant or in vivo environments, this challenge is exacerbated by the dense surrounding environments with feature size and shape comparable to those of microrobots. To address this challenge, we developed Motion Enhanced Multi-level Tracker (MEMTrack), a robust pipeline for detecting and tracking micro-motors in bright-field microscopy videos using synthetic motion features, deep learning-based object detection, and a modified Simple Online and Real-time Tracking (SORT) algorithm with interpolation for tracking. Our object detection approach combines different models based on the object’s motion pattern. We trained and validated our model using bacterial micro- motors in the tissue-like collagen environment and tested it in collagen and liquid (aqueous) media. We demonstrate that MEMTrack can accurately predict and track even the most challenging bacterial micro-motors missed by skilled human annotators, achieving precision and recall of 77% and 48% in collagen and 94% and 35% in liquid media, respectively. We also show that MEMTrack is able to accurately quantitate the average speed of bacterial micromotors with no statistically significant difference from the laboriously produced manual tracking data. Our proposed pipeline not only represents a significant contribution to the field of microrobot image analysis and tracking using computer vision but also opens the potential of applying deep learning methods in vision-based control of microrobots for various applications, including disease diagnosis and treatment.
 
-Paper Link: **https://onlinelibrary.wiley.com/doi/full/10.1002/aisy.202300590** 
+**Paper Link: https://onlinelibrary.wiley.com/doi/full/10.1002/aisy.202300590** 
 
-Paper Arxiv Link: **https://arxiv.org/abs/2310.09441** (For updated results and information)
+**Paper Arxiv Link: https://arxiv.org/abs/2310.09441** (For updated results and information)
 
-Google Colab Tutorial: https://colab.research.google.com/drive/1PltZ8q_AEmVxoSoh5gog288GcPfOgvZy?usp=sharing
+**Google Colab Tutorial: https://colab.research.google.com/drive/1PltZ8q_AEmVxoSoh5gog288GcPfOgvZy?usp=sharing**
 
 ## Getting Started
 ### Installation

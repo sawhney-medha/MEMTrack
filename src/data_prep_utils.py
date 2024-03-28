@@ -502,4 +502,27 @@ def process_data(folder, src, final_data_dir, out_sub_dir, videomap="videomap.tx
     return video_num
     
     
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser(description="Process folders.")
+    parser.add_argument("--src_dir", default = "DataAll/Collagen/", help="Path to the folder to process")
+    parser.add_argument("--folder",  default ="video1", help="Path to the folder to process")
+    parser.add_argument("--out_dir", default ="MEMTrack/data/",  help="Path to the folder to process")
+    parser.add_argument("--out_sub_dir",   help="Path to the folder to process")
+    parser.add_argument("--csv_file_name", help="Path to the folder to process", default= "Raw Data.csv")
+    parser.add_argument("--videomap", default="videomap.txt")
+    parser.add_argument("--no_gt", action="store_true")
+    parser.add_argument("--unzip", action="store_true", help="Unzip folder")
+
+
+    args = parser.parse_args(args)
+    src = args.src_dir
+    final_data_dir  = args.out_dir
+    out_sub_dir = args.out_sub_dir
+    videomap = args.videomap
+    csv_file_name = args.csv_file_name
+    inference_mode = args.no_gt
+    folder= args.folder
+    unzip = args.unzip    
     
+    process_data(folder, src, final_data_dir, out_sub_dir, videomap, csv_file_name, inference_mode, unzip)

@@ -1,4 +1,5 @@
 pip==22.0.3
+numpy==1.19.5
 filterpy==1.4.5
 json5==0.9.6
 jsonlines==3.0.0
@@ -16,7 +17,6 @@ lap==0.4.0
 matplotlib==3.3.4
 motmetrics==1.2.5
 natsort==7.1.1
-numpy==1.19.5
 opencv-python==4.5.5.64
 opencv-python-headless==4.5.4.60
 openpyxl

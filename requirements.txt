@@ -1,5 +1,4 @@
 pip==22.0.3
-numpy
 filterpy==1.4.5
 json5==0.9.6
 jsonlines==3.0.0

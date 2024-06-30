@@ -27,7 +27,7 @@ pycocotools @ git+https://github.com/cocodataset/cocoapi.git@8c9bcc3cf640524c4c2
 scikit-image==0.17.2
 scikit-learn 
 scipy
-seaborn==0.11.2
+seaborn
 torch==1.9.1
 torchfile==0.1.0
 torchmetrics==0.5.1

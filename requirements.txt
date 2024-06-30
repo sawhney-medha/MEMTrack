@@ -25,7 +25,7 @@ pandas==1.1.5
 plotly==5.11.0
 pycocotools @ git+https://github.com/cocodataset/cocoapi.git@8c9bcc3cf640524c4c20a9c40e89cb6a2f2fa0e9#subdirectory=PythonAPI
 scikit-image==0.17.2
-scikit-learn #==0.24.2
+scikit-learn 
 scipy==1.5.4
 seaborn==0.11.2
 torch==1.9.1

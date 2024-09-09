@@ -375,12 +375,6 @@ try:
     coco_file=f"coco_instances_results_{difficulty_level}.json"
     detectron_train_file_name = f"boardetect_test_coco_format_{difficulty_level}.json"
     train_file_name=f"test_{difficulty_level}.json"
-    
-    coco_file = "coco_instances_results_wiggle_diffusivity.json"
-    train_file_name="test_Motility-wiggle.json"
-    detectron_train_file_name = "boardetect_test_coco_format_Motility-wiggle.json"
-
-
     store_file_path = store_file_path_main + f"_{difficulty_level}.txt" if store_file_path_main else None
     if store_file_path:
         result_file = open(store_file_path,'a+')
@@ -395,8 +389,8 @@ try:
     pr, rc = get_statistics(data_path, images_path, coco_eval_path,test_json_path, 
                    train_file_name=train_file_name,detectron_train_file_name = detectron_train_file_name, 
                    iou_thresh=0.1, coco_file=coco_file, print_details=False, store_results_path=store_file_path)
-    print("Precision: ", pr)
-    print("Recall: ", rc)
+    print("Precision Low: ", pr)
+    print("Recall Low: ", rc)
     precision[ "Motility-low"] = pr
     recall[ "Motility-low"] = rc
 except:
@@ -433,8 +427,8 @@ try:
     pr, rc = get_statistics(data_path, images_path, coco_eval_path,test_json_path, 
                    train_file_name=train_file_name,detectron_train_file_name = detectron_train_file_name, 
                    iou_thresh=0.1, coco_file=coco_file, print_details=False, store_results_path=store_file_path)
-    print("Precision: ", pr)
-    print("Recall: ", rc)
+    print("Precision wiggle: ", pr)
+    print("Recall wiggle: ", rc)
     precision["Motility-wiggle"] = pr
     recall["Motility-wiggle"] = rc
 except:
@@ -471,8 +465,8 @@ try:
     pr, rc = get_statistics(data_path, images_path, coco_eval_path,test_json_path, 
                    train_file_name=train_file_name,detectron_train_file_name = detectron_train_file_name, 
                    iou_thresh=0.1, coco_file=coco_file, print_details=False, store_results_path=store_file_path)
-    print("Precision: ", pr)
-    print("Recall: ", rc)
+    print("Precision mid: ", pr)
+    print("Recall mid: ", rc)
     precision["Motility-mid"] = pr
     recall["Motility-mid"] = rc
 except:
@@ -506,8 +500,8 @@ try:
     pr, rc = get_statistics(data_path, images_path, coco_eval_path,test_json_path, 
                    train_file_name=train_file_name,detectron_train_file_name = detectron_train_file_name, 
                    iou_thresh=0.1, coco_file=coco_file, print_details=False, store_results_path=store_file_path)
-    print("Precision: ", pr)
-    print("Recall: ", rc)
+    print("Precision high: ", pr)
+    print("Recall high: ", rc)
     precision["Motility-high"] = pr
     recall["Motility-high"] = rc
 except:
@@ -545,8 +539,8 @@ if store_file_path:
 pr, rc = get_statistics(data_path, images_path, coco_eval_path, test_json_path, 
               train_file_name=train_file_name, detectron_train_file_name = detectron_train_file_name,
               iou_thresh=0.1,coco_file=coco_file,print_details=False, store_results_path=store_file_path)
-print("Precision: ", pr)
-print("Recall: ", rc)
+print("Precision Detection combined: ", pr)
+print("Recall Detection combined: ", rc)
 precision["Combination Model Detection"] = pr
 recall["Combination Model Detection"] = rc
 
@@ -576,8 +570,8 @@ if store_file_path:
 pr, rc = get_statistics(data_path, images_path, coco_eval_path, test_json_path, 
               train_file_name=train_file_name, detectron_train_file_name = detectron_train_file_name,
               iou_thresh=0.1,coco_file=coco_file,print_details=False, store_results_path=store_file_path)
-print("Precision: ", pr)
-print("Recall: ", rc)
+print("Precision Filter Box Size: ", pr)
+print("Recall Filter Box Size: ", rc)
 precision["Filter Box Size"] = pr
 recall["Filter Box Size"] = rc
 
@@ -605,8 +599,8 @@ if store_file_path:
 pr, rc = get_statistics(data_path, images_path, coco_eval_path, test_json_path, 
               train_file_name=train_file_name, detectron_train_file_name = detectron_train_file_name,
               iou_thresh=0.1,coco_file=coco_file,print_details=False, store_results_path=store_file_path)
-print("Precision: ", pr)
-print("Recall: ", rc)
+print("Precision Filter Conf Score: ", pr)
+print("Recall Filter Conf Score: ", rc)
 precision["Filter Conf Score"] = pr
 recall["Filter Conf Score"] = rc
 
@@ -635,8 +629,8 @@ if store_file_path:
 pr, rc = get_statistics(data_path, images_path, coco_eval_path, test_json_path, 
               train_file_name=train_file_name, detectron_train_file_name = detectron_train_file_name,
               iou_thresh=0.1,coco_file=coco_file,print_details=False, store_results_path=store_file_path)
-print("Precision: ", pr)
-print("Recall: ", rc)
+print("Precision Filter NMS: ", pr)
+print("Recall Filter NMS: ", rc)
 precision["Filter NMS"] = pr
 recall["Filter NMS"] = rc
 
@@ -665,8 +659,8 @@ if store_file_path:
 pr, rc = get_statistics(data_path, images_path, coco_eval_path, test_json_path, 
               train_file_name=train_file_name, detectron_train_file_name = detectron_train_file_name,
               iou_thresh=0.1,coco_file=coco_file,print_details=False, store_results_path=store_file_path)
-print("Precision: ", pr)
-print("Recall: ", rc)
+print("Precision Tracking: ", pr)
+print("Recall Tracking: ", rc)
 precision["Tracking"] = pr
 recall["Tracking"] = rc
 
@@ -698,8 +692,8 @@ if store_file_path:
 pr, rc = get_statistics(data_path, images_path, coco_eval_path, test_json_path, 
               train_file_name=train_file_name, detectron_train_file_name = detectron_train_file_name,
               iou_thresh=0.1,coco_file=coco_file,print_details=False, store_results_path=store_file_path)
-print("Precision: ", pr)
-print("Recall: ", rc)
+print("Precision Final: ", pr)
+print("Recall Final: ", rc)
 precision["Filter Track Length"] = pr
 recall["Filter Track Length"] = rc
 

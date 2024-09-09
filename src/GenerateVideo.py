@@ -28,7 +28,6 @@ def create_video(data_dir, image_dir, video_name):
         img = cv2.imread(os.path.join(image_dir, frame))
         video.write(img)
 
-    cv2.destroyAllWindows()
     video.release()
 
 if args.custom_test_dir:

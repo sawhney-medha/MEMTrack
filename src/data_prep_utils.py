@@ -431,7 +431,6 @@ def create_video(data_dir):
         img = cv2.imread(os.path.join(image_dir, frame))
         video.write(img)
 
-    cv2.destroyAllWindows()
     video.release()
 
 def get_background(file_path, mean=True, sample=False):

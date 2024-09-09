@@ -16,7 +16,6 @@ import numpy as np
 from detectron2 import model_zoo
 from detectron2.engine import DefaultPredictor
 from detectron2.config import get_cfg
-from detectron2.utils.visualizer import Visualizer
 from detectron2.data import MetadataCatalog, DatasetCatalog
 import json
 from detectron2.structures import BoxMode
@@ -25,7 +24,6 @@ import argparse
 from natsort import natsorted
 import PIL
 from PIL import Image
-import matplotlib.pyplot as plt
 from detectron2.engine import DefaultTrainer
 from detectron2.evaluation import COCOEvaluator
 from detectron2.config import get_cfg
@@ -49,9 +47,7 @@ if args.custom_test_dir:
     dest_test = args.custom_test_dir
 else:
     dest_test = args.test_dir + f"/data_video{video_num}_feature_optical_flow_median_back_2pyr_18win_background_img/test/"
-#dest_test = f"./video{video_num}_feature_optical_flow_median_back_2pyr_18win/test/"
-
-
+    #dest_test = f"./video{video_num}_feature_optical_flow_median_back_2pyr_18win/test/"
 
 output_dir = ("try_median_issue_optical_flow_median_back_2pyr_18win_00125_34k_background_img")
 #output_dir = ("./optical_flow_median_back/")

@@ -29,14 +29,16 @@ To get started with this project, follow these steps:
    ```bash
    cd MEMTrack
 
-3. Create environemnt and install the required dependencies using pip:
+3. Create environemnt and install the required dependencies using pip :
 
    ```bash
     python3.8 -m venv memtrack_env
     source memtrack_env/bin/activate
     cd MEMTrack
-    pip install -r requirements.txt
+    
+    pip install torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 --index-url https://download.pytorch.org/whl/cu118 (Check PyTorch version according to CUDA version/drivers)
     python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
+    pip install -r requirements.txt
 
    
 4. Download models.zip containing pre-trained and store it in *MEMTrack/models*

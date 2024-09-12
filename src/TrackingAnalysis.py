@@ -305,6 +305,7 @@ if args.plot :
                         ground_truth_data_bacteria_track_specific.append(entry)
         track_id_ground_truth = groupby_trackid(ground_truth_data_bacteria_track_specific)
         ground_truth = groupby_imageid(track_id_ground_truth)
+        print(track_id_ground_truth)
 
 
 

@@ -93,9 +93,9 @@ def create_annotations(video_dir, csv_file_name, inference_mode, video_num, targ
 #             print(csv_file_name)
             if ".csv" not in csv_file_name:
                 read_file = pd.read_excel(csv_file, engine='openpyxl')
-                read_file.to_csv (csv_file.split("xlsx")[0]+".csv", 
+                read_file.to_csv (csv_file.split("xlsx")[0]+"csv", 
                               index = None, header=True)
-                csv_file = csv_file.split("xlsx")[0]+".csv"
+                csv_file = csv_file.split("xlsx")[0]+"csv"
 #             print(csv_file)
             file = open(csv_file)
         except:
@@ -124,7 +124,7 @@ def create_annotations(video_dir, csv_file_name, inference_mode, video_num, targ
         except:
             diff_id = None
             print("No diff id found, assuming all easy")
-#         print(img_id)
+        print("img_id:", img_id)
 #         print(x_id)
 #         print(y_id)
 #         print(sticking_id)
@@ -489,6 +489,9 @@ def process_data(folder, src, final_data_dir, out_sub_dir, videomap="videomap.tx
     if not inference_mode:
         target_video_dir = f"{target_data_sub_dir}/video{video_num}/frame1"
         csv_file = os.path.join(video_dir, csv_file_name)
+        if ".csv" not in csv_file_name:
+                csv_file = csv_file.split("xlsx")[0]+"csv"
+        print(csv_file)
         file = open(csv_file)
         generate_bacteria_data(file, target_video_dir)
         file.close()

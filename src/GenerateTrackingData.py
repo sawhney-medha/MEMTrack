@@ -12,6 +12,7 @@ ap.add_argument('--filter_thresh', default="0.0", type=float, metavar='THRESH')
 ap.add_argument('--video_num', default="", type=str, metavar='VIDEO')
 ap.add_argument('--data_path', default="19", type=str, metavar='PATH')
 ap.add_argument('--custom_test_dir', type=str, metavar='CELL PATH')
+ap.add_argument('--conf_score_thres', default=0.99, type=float, metavar='THRESH')
 args = ap.parse_args()
 filter_thresh = args.filter_thresh
 video_num = args.video_num
@@ -56,7 +57,7 @@ def filter_boxes_size(tracking_info_predictions_path, op_path):
     specific_file = tracking_info_predictions_filetered_path.split("filtered.json")[0] + "filter_box_size" +".json"
     shutil.copy(tracking_info_predictions_filetered_path, specific_file)
 
-def filter_conf_score(tracking_info_predictions_path, op_path):
+def filter_conf_score(tracking_info_predictions_path, op_path, conf_thresh):
     tracking_info_predictions_filetered_path = op_path
     # filter boxes by size to remove extremely big boxes
     combined_predictions_json = open(tracking_info_predictions_path)
@@ -64,13 +65,13 @@ def filter_conf_score(tracking_info_predictions_path, op_path):
     combined_predictions_filtered = []
     for pred in combined_predictions:
         score = pred["score"]
-        # if pred["diff"] == "Motility-low" and score < 0.2:
-        #     continue
-        if pred["diff"] == "Motility-wiggle" and score < 0.99:
+        if pred["diff"] == "Motility-low" and score < float(conf_thresh):
             continue
-        elif pred["diff"] == "Motility-mid" and score < 0.99:
+        if pred["diff"] == "Motility-wiggle" and score < float(conf_thresh):
             continue
-        elif pred["diff"] == "Motility-high" and score < 0.99:
+        elif pred["diff"] == "Motility-mid" and score < float(conf_thresh):
+            continue
+        elif pred["diff"] == "Motility-high" and score < float(conf_thresh):
             continue
         else:
             combined_predictions_filtered.append(pred)
@@ -234,7 +235,7 @@ op_path1 = os.path.join(data_path, video_path, combined_pred_filtered_path)
 combine_predictions(paths, op_path0)
 
 filter_boxes_size(op_path0, op_path=op_path1)
-filter_conf_score(op_path1, op_path=op_path1)
+filter_conf_score(op_path1, op_path=op_path1, conf_thresh=args.conf_score_thres)
 nms_filter(op_path1, op_path=op_path1, iou_thresh_nms=filter_thresh)
 
 gen_tracking_data(video_num, op_path1, os.path.join(data_path, video_path))
